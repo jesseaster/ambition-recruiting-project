@@ -18,3 +18,14 @@ The objective of this project is to get all tests in the project to pass.
 __The tests should not be modified__. They should be assumed to be accurate tests of the behavior of the
 application. Instead, there are bugs in the project's codebase that are causing the tests to fail. It is
 your job to fix the bugs in order to get all tests to pass.
+
+
+### Get Started
+
+```
+cd path/to/ambition-recruiting-project
+virtualenv -p `which python3` venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py test recruiting_project
+```
