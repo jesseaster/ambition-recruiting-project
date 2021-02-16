@@ -8,8 +8,8 @@ general familiarity with Python, Django, and testing to ensure the subsequent st
 **Recruiting Process**
 
 Thank you in advance for taking the time to work through this project and our process. 
-Our goal throughout is to foster meaningful, real-world conversations as to how you think and how you work. 
-While we know it's unrealistic to know exactly what "we're getting" (and you're getting!) through this process... 
+Our goal throughout is to foster meaningful, real-world conversations as to how you think and work. 
+While we know it's unrealistic to know exactly what "we're getting" (and you're getting!) throughout this process... 
 it's at the very least more insightful than whiteboard problems.
 
 1. Complete this ~1 hour project below and submit your code as a link within the [application form](https://forms.gle/eG6qWWwbYjTqx5HD6).
