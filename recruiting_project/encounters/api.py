@@ -24,5 +24,5 @@ class EncountersModelViewSet(ModelViewSet):
     """
     Model viewset for encounters API
     """
-    queryset = Encounter.objects.all()
+    queryset = Encounter.objects.prefetch_related('mobs__starship')
     serializer_class = EncounterSerializer

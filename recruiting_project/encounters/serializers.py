@@ -31,7 +31,7 @@ class MobSerializer(ModelSerializer):
 
 
 class EncounterSerializer(ModelSerializer):
-    mobs = SerializerMethodField()
+    mobs = MobSerializer(many=True).data
 
     class Meta:
         model = Encounter
@@ -39,7 +39,3 @@ class EncounterSerializer(ModelSerializer):
             'name',
             'mobs',
         ]
-
-    def get_mobs(self, instance):
-        return MobSerializer(instance.mobs, many=True).data
-
