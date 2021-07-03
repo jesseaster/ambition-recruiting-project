@@ -22,11 +22,11 @@ class Command(BaseCommand):
                     StarshipClass.objects,
                     name=starship['starship_class']
                 )
-                upsert(
+                model_obj, created = upsert(
                     Starship.objects,
+                    name=starship['name'],
                     updates={
                         'swapi_url': starship.get('url'),
-                        'name': starship.get('name'),
                         'model': starship.get('model'),
                         'starship_class': starship_class,
                         'cost_in_credits': self._get_number_or_none(starship, 'cost_in_credits'),
@@ -35,7 +35,9 @@ class Command(BaseCommand):
                         'cargo_capacity': self._get_number_or_none(starship, 'cargo_capacity'),
                     }
                 )
-
+                #print(str(created) + " " + str(model_obj))
+                # https://django-manager-utils.readthedocs.io/en/latest/ref/method-documentation.html?highlight=upsert#upsert
+                # Have to use an identifier to upsert, otherwise you update the same one, over and over again
     def _get_number_or_none(self, obj, field_key):
         """
         Returns an integer if one can be parsed from the field, else None
