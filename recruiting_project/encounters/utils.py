@@ -3,16 +3,18 @@ from collections import defaultdict
 from recruiting_project.encounters.models import Encounter, Mob
 
 
-def get_encounter_starship_classes(encounter_ids=[]):
+def get_encounter_starship_classes(encounter_ids=None):
     """
     Get a set of starship class names for all encounters
 
     :param encounter_ids: A specific list of encounters to scope this operation, else grab all encounters
     """
     # if not encounter_ids, just get all encounters
-    if not encounter_ids:
-        for encounter in Encounter.objects.all():
-            encounter_ids.append(encounter.id)
+    if encounter_ids is None:
+        encounter_ids = []
+        for e in Encounter.objects.all():
+            encounter_ids.append(e.id)
+
 
     # get unique starship classes for each encounters
     mobs = Mob.objects.filter(
