@@ -7,6 +7,9 @@ class StarshipClass(models.Model):
     """
     name = models.CharField(max_length=256)
 
+    def __str__(self):
+        return self.name
+
 
 class Starship(models.Model):
     """
@@ -22,11 +25,14 @@ class Starship(models.Model):
     # The number of personnel needed to run or pilot the starship
     crew = models.IntegerField(null=True)
     # The number of non-essential people this starship can transport
-    passengers = models.IntegerField()
+    passengers = models.IntegerField(null=True)
     # Maximum number of kilograms that this starship can transport
     cargo_capacity = models.IntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Encounter(models.Model):
@@ -38,6 +44,9 @@ class Encounter(models.Model):
     # Any notes the GM wants to reference later
     notes = models.TextField(null=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Mob(models.Model):
     """
@@ -45,3 +54,6 @@ class Mob(models.Model):
     """
     starship = models.ForeignKey(Starship, on_delete=models.PROTECT)
     encounter = models.ForeignKey(Encounter, related_name='mobs', on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.starship + " " + self.encounter
